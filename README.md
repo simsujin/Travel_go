@@ -1,147 +1,173 @@
-# Travel_go
-외국인 여행자를 위한 한국 여행 통합 가이드 서비스 TravelGo Flutter 기반 앱 개발 · UX 설계 · 데이터 기반 추천 경험 구현
+# ✈️ TravelGo  
+### Foreigner-Friendly Travel Assistant for Korea
 
-## ✈️ TravelGo – Foreigner-Friendly Travel Assistant for Korea
+![Flutter](https://img.shields.io/badge/Flutter-02569B?logo=flutter&logoColor=white)
+![Dart](https://img.shields.io/badge/Dart-0175C2?logo=dart&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-3FCF8E?logo=supabase&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?logo=scikit-learn&logoColor=white)
 
-<br><br><br>
+---
 
-📌 프로젝트 개요
+## 📌 프로젝트 개요
 
-TravelGo는 한국을 방문하는 외국인 여행자가
-흩어진 정보, 낮은 신뢰도, 언어 장벽으로 겪는 불편을 해결하기 위해 기획된
-한국 여행 통합 가이드 서비스입니다.
+**TravelGo**는 한국을 방문하는 외국인 여행자가 겪는  
+**정보 파편화 · 낮은 신뢰도 · 즉각적인 의사결정의 어려움**을 해결하기 위해 기획된  
+**여정 기반 한국 여행 통합 가이드 서비스**입니다.
 
-기존에 여행객들은
+여행객은 지도, 영상, 검색, SNS를 각각 오가며 정보를 소비하고  
+그 과정에서 **경험의 흐름이 끊어지고 결정 피로도**가 누적됩니다.
 
-지도는 Google Maps
+TravelGo는  
+> **“여행 중 끊기지 않는 결정의 흐름”**  
+을 핵심 가치로,  
+사용자의 **위치 · 시간 · 일정 맥락**에 맞는 정보를 한 흐름으로 제공합니다.
 
-영상은 YouTube
+---
 
-정보 검색은 블로그·SNS
+## 🎯 프로젝트 목표 (Project Goals)
 
-처럼 여러 서비스로 분산되어 이동해야 했고,
-이 과정에서 의사결정 피로도와 경험 단절이 발생했습니다.
+1. 여행 중 **정보 탐색 → 결정 → 이동 → 경험** 흐름 단절 최소화
+2. 한국 여행에 특화된 **신뢰도 높은 로컬 데이터** 제공
+3. 일정 변경 상황에서도 즉시 대응 가능한 **컨텍스트 기반 추천**
+4. 외국인 관점에서 이해하기 쉬운 **설명 중심 UX** 구현
+5. 확장 가능한 구조(제휴/추천/AR/ML)를 고려한 서비스 설계
 
-TravelGo는
-👉 여정 중심 UX
-👉 현지 신뢰 데이터
-👉 상황 기반 추천
-을 통해 여행 흐름을 하나의 경험으로 연결하는 것을 목표로 합니다.
+---
 
-🎯 문제 정의 (Pain Points)
+## 📊 성과 지표 (KPI)
 
-한국 내 지도 및 장소 정보의 정확도 부족
+| 구분 | KPI 지표 | 목표 |
+|---|---|---|
+| 사용성 | 추천 클릭률 (CTR) | ≥ 30% |
+| 경험 흐름 | 추천 → 장소 상세 전환율 | ≥ 40% |
+| 만족도 | 추천 결과 저장(북마크) 비율 | ≥ 25% |
+| 효율 | 평균 의사결정 시간 감소 | ≥ 20% |
+| 신뢰도 | 공공/로컬 데이터 기반 장소 사용률 | 지속 증가 |
 
-저장한 여행 정보가 실제 경험으로 이어지지 않음
+---
 
-일정 변경 시 즉각적인 대안 추천의 부재
+## 🏗️ 시스템 아키텍처 개요
 
-여행 중 정보가 파편화되어 의사결정이 느림
+- **Client** : Flutter (iOS / Android)
+- **Backend** : FastAPI
+- **DB** : PostgreSQL (Supabase)
+- **ML** : scikit-learn
+- **External APIs**  
+  - Google / Kakao / Naver Map  
+  - 공공데이터포털(data.go.kr)  
+  - OpenAI API
+- **Collaboration** : Figma / GitHub / Notion
 
-💡 핵심 컨셉
+---
 
-“여행 중 끊기지 않는 결정의 흐름”
+## 🔁 전체 워크플로우
 
-사용자의 현재 위치 · 시간 · 일정을 기준으로
+1. 사용자가 Flutter 앱에서 장소 탐색 / 추천 요청
+2. FastAPI 서버가 요청 수신
+3. 외부 API(지도·공공데이터) 호출 및 데이터 정제
+4. PostgreSQL에 저장된 사용자/여정/로그 데이터 조회
+5. scikit-learn 기반 추천 로직 실행
+6. OpenAI API로 추천 이유 및 요약 생성
+7. 정제된 결과를 Flutter 앱에 전달
 
-지금 필요한 정보만 자연스럽게 제공
+---
 
-여행 계획 → 이동 → 경험 → 기록까지 하나의 여정으로 설계
+## 🧩 기술 스택 상세
 
-🧩 주요 기능
-🗺️ 여행 여정 기반 추천
+### Client App
+- **Flutter (Dart)**
+  - 여행 중 사용성을 고려한 단순하고 명확한 UI
+- **주요 플러그인**
+  - `geolocator` : 위치 기반 기능
+  - `ar location viewer` : AR 기반 위치 경험 확장
 
-현재 위치 및 일정 맥락에 맞는 장소 추천
+### Backend / DB / ML
+- **FastAPI**
+  - API 라우팅, 외부 API 통합, 데이터 정제
+- **Supabase**
+  - 인증 및 DB 인프라 구축
+- **PostgreSQL**
+  - 유저, 여정, 장소, 로그 데이터 관리
+- **scikit-learn**
+  - 추천 점수 계산 및 랭킹 모델
 
-일정 변경 시 대체 장소 자동 제안
+### External APIs
+- **Google / Kakao / Naver Map**
+  - 한국 로컬 지도 및 장소 정보 보완
+- **공공데이터포털**
+  - 관광/시설 정보의 신뢰도 확보
+- **OpenAI API**
+  - 자연어 요약 및 추천 설명 생성
 
-📍 한국 특화 로컬 데이터
+---
 
-관광청·로컬 데이터 기반 장소 정보
+## 🧠 나의 역할 (Role)
 
-외국인 관점에서 재구성된 설명
+- 서비스 기획 및 문제 정의
+- 핵심 UX 컨셉 및 사용자 여정 설계
+- 화면 구조 및 디자인 시스템 설계 (Figma)
+- Flutter 기반 UI 구현
+- FastAPI 구조 설계 및 API 연동
+- DB 구조 설계 및 데이터 흐름 정의
+- 추천 로직 설계 및 ML 연동 구조 기획
+- 전체 아키텍처 통합 및 개선
 
-🧳 여행 준비 & 여행 중 UX 분리 설계
+---
 
-출발 전: 일정 정리, 저장, 미리보기
+## 🧯 트러블슈팅 (Troubleshooting)
 
-여행 중: 즉시 사용 가능한 정보만 노출
+### 1️⃣ 외부 지도 데이터 신뢰도 문제
+- **문제**: Google Maps 단독 사용 시 한국 장소 정보 정확도 부족
+- **해결**:  
+  - Kakao / Naver / 공공데이터 병행 사용  
+  - 서버에서 데이터 정제 및 우선순위 로직 적용
 
-🤝 확장 가능한 제휴 구조
+---
 
-관광청 / 도시 브랜드
+### 2️⃣ 여행 중 정보 과다 노출
+- **문제**: 한 화면에 너무 많은 정보 → 사용 피로 증가
+- **해결**:  
+  - 위치/시간/일정 기반으로 노출 정보 최소화  
+  - “지금 필요한 정보만” 제공하는 UX 설계
 
-교통·숙박 플랫폼
+---
 
-로컬 상권 및 프로모션 연계
+### 3️⃣ 추천 결과의 신뢰 부족
+- **문제**: AI 추천에 대한 불신
+- **해결**:  
+  - 추천 이유를 자연어로 설명  
+  - 공공데이터·지도 출처를 함께 제시
 
-<br><br>
+---
 
-🛠️ 기술 스택
-구분	내용
-Frontend	Flutter (Material 3)
-Language	Dart
-UI Design	Custom Design System (Light-Blue Theme)
-Architecture	Screen-based UI Flow
-Collaboration	GitHub (branch 전략)
+### 4️⃣ 확장성 없는 초기 설계 리스크
+- **문제**: 기능 추가 시 구조 변경 위험
+- **해결**:  
+  - Client / Backend / ML / External API 명확히 분리  
+  - AR, 제휴, 광고 기능을 플러그인 형태로 확장 가능하게 설계
 
-<br><br>
-🎨 UX / UI 특징
+---
 
-여행 중 시인성 최우선
+## 🚀 확장 방향 (Roadmap)
 
-불필요한 정보 제거, 결정에 필요한 요소만 노출
+- 세션/컨텍스트 기반 추천 고도화
+- AR 기반 실시간 여행 안내
+- 관광청·도시 브랜드 제휴 모델
+- 교통·숙박 플랫폼 연동
+- 다국어 UX 및 문화 맥락 반영 강화
 
-LG 브랜드 톤을 고려한 차분하고 신뢰감 있는 컬러 시스템
+---
 
-Splash → Home → Journey → Place 흐름을 명확히 구분
+## 🙌 Contact
 
-<br><br>
-
-🧠 나의 역할 (개인 기여)
-
-서비스 기획 및 UX 컨셉 정의
-
-사용자 시나리오 & 여정 설계
-
-Flutter UI 구현
-
-디자인 시스템 및 인터랙션 설계
-
-GitHub 기반 협업 구조 이해 및 적용
-
-<br><br>
-
-🚀 프로젝트를 통해 성장한 점
-
-디자이너 관점에서 개발 언어로 사고하기
-
-UX 설계를 코드 구조로 연결하는 경험
-
-“보기 좋은 화면”이 아닌
-사용 흐름이 끊기지 않는 인터페이스에 대한 이해
-
-실제 서비스 관점의 확장성과 비즈니스 모델 고려
-
-<br><br>
-
-📷 Screenshots (추가 예정)
-
-추후 앱 화면 이미지 또는 GIF 추가
-
-<br><br>
-
-📎 Related
-
-LG DX School DX Project
-
-Travel / UX / Flutter Portfolio
-
-<br><br>
-
-🙌 Contact
-
-Sophie Sim
-Interactive / UX-Oriented Designer & Developer
-📍 Korea · Canada
+**Sophie Sim**  
+Interactive / UX-Oriented Designer & Developer  
+📍 Korea · Canada  
 🔗 Portfolio & GitHub: (추가 예정)
+
+---
+
+> 본 프로젝트는 LG DX School DX Project의 일환으로 진행되었으며,  
+> 개인 포트폴리오 목적으로 정리된 결과물입니다.
