@@ -10,23 +10,52 @@
 
 ---
 
-## 📌 프로젝트 개요
+## 1. Project Overview
 
-**TravelGo**는 한국을 방문하는 외국인 여행자가 겪는  
-**정보 파편화 · 낮은 신뢰도 · 즉각적인 의사결정의 어려움**을 해결하기 위해 기획된  
-**여정 기반 한국 여행 통합 가이드 서비스**입니다.
+Travel Go는 외국인 여행자가 한국에서 겪는
 
-여행객은 지도, 영상, 검색, SNS를 각각 오가며 정보를 소비하고  
-그 과정에서 **경험의 흐름이 끊어지고 결정 피로도**가 누적됩니다.
+지도 정확도 문제
 
-TravelGo는  
-> **“여행 중 끊기지 않는 결정의 흐름”**  
-을 핵심 가치로,  
-사용자의 **위치 · 시간 · 일정 맥락**에 맞는 정보를 한 흐름으로 제공합니다.
+정보 탐색의 파편화
+
+언어 장벽
+
+을 해결하기 위해 설계된
+
+AR 기반 실시간 탐색 + AI 여행 추천 서비스이다.
+
+핵심 목표
+
+외국인 여행자의 정보 탐색 스트레스 감소
+
+AR 기반 직관적 위치 탐색
+
+AI 기반 개인화 여행 루트 생성
+
+여행 루트 공유 커뮤니티 제공
+
 
 ---
 
-## 🎯 프로젝트 목표 (Project Goals)
+## 2. Service Flow
+
+Travel Content Discovery (TV / SNS)
+           ↓
+Saved Places (My Luggage)
+           ↓
+AI Route Generation
+           ↓
+Travel Go Mobile App
+           ↓
+AR Real-time Exploration
+           ↓
+Travel Experience Record
+           ↓
+Route Sharing Community
+
+---
+
+## 3. 프로젝트 목표 (Project Goals)
 
 1. 여행 중 **정보 탐색 → 결정 → 이동 → 경험** 흐름 단절 최소화
 2. 한국 여행에 특화된 **신뢰도 높은 로컬 데이터** 제공
@@ -36,7 +65,79 @@ TravelGo는
 
 ---
 
-## 📊 성과 지표 (KPI)
+## 4. Team
+
+팀 구성: 6명
+
+Backend : 2
+Frontend : 1
+Database : 2
+Documentation : 1
+
+---
+
+## 5. My Role
+
+부팀장 / PM / Frontend / UI·UX / Data Analysis
+
+담당 업무
+
+프로젝트 관리
+
+- 일정 관리
+
+- 프로젝트 운영
+
+서비스 설계
+
+- 서비스 기획
+
+- 프로토타입 제작
+
+- UI/UX 디자인
+
+개발
+
+- Flutter 프론트엔드 개발
+
+데이터 분석
+
+- 여행 리뷰 데이터 분석
+
+- 사용자 니즈 도출
+
+발표
+
+- 발표 자료 제작
+
+- 서비스 데모 시연
+
+---
+
+## 6.System Architecture
+
+                        OpenAI API
+                      AI Place Recommendation
+                               │
+                               │
+                ┌──────────────▼──────────────┐
+                │            Supabase          │
+                │                              │
+                │  Auth (Email / Social Login) │
+                │  PostgreSQL Database         │
+                │  Storage (Images)            │
+                │  RPC Stored Functions        │
+                └──────────────┬──────────────┘
+                               │
+                 ┌─────────────┴─────────────┐
+                 │                           │
+        Flutter Mobile App             Vue Web App
+           (Travel Go)                 (Admin / Web)
+
+
+---
+
+##  성과 지표 (KPI)
 
 | 구분 | KPI 지표 | 목표 |
 |---|---|---|
@@ -48,7 +149,7 @@ TravelGo는
 
 ---
 
-## 🏗️ 시스템 아키텍처 개요
+##  시스템 아키텍처 개요
 
 - **Client** : Flutter (iOS / Android)
 - **Backend** : FastAPI
@@ -62,7 +163,7 @@ TravelGo는
 
 ---
 
-## 🔁 전체 워크플로우
+##  전체 워크플로우
 
 1. 사용자가 Flutter 앱에서 장소 탐색 / 추천 요청
 2. FastAPI 서버가 요청 수신
@@ -74,7 +175,7 @@ TravelGo는
 
 ---
 
-## 🧩 기술 스택 상세
+##  기술 스택 상세
 
 ### Client App
 - **Flutter (Dart)**
@@ -103,7 +204,7 @@ TravelGo는
 
 ---
 
-## 🧠 나의 역할 (Role)
+##  나의 역할 (Role)
 
 - 서비스 기획 및 문제 정의
 - 핵심 UX 컨셉 및 사용자 여정 설계
@@ -150,7 +251,7 @@ TravelGo는
 
 ---
 
-## 🚀 확장 방향 (Roadmap)
+##  확장 방향 (Roadmap)
 
 - 세션/컨텍스트 기반 추천 고도화
 - AR 기반 실시간 여행 안내
@@ -160,7 +261,7 @@ TravelGo는
 
 ---
 
-## 🙌 Contact
+##  Contact
 
 **Sophie Sim**  
 Interactive / UX-Oriented Designer & Developer  
